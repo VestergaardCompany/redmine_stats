@@ -105,8 +105,8 @@ class TicketsByOwner(RedmineBase):
 
         def row(item):
             print "_v%s.label %s %s" % (item[3],
-                                        unicode(item[1]).encode("utf-8"),
-                                        unicode(item[2]).encode("utf-8"))
+                                        unicode(item[1]).encode("iso-8859-1"),
+                                        unicode(item[2]).encode("iso-8859-1"))
             print "_v%s.draw AREASTACK" % (item[3])
 
         self._result(row)
