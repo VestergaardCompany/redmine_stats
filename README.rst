@@ -35,10 +35,10 @@ First checkout and symlink your plugins into munin plugins directory using::
 Open ``/etc/munin/plugin-conf.d/munin-node`` and add following lines::
 
     [redmine_*]
-    env.host = <mysql_hostname>
-    env.username = <mysql_username>
-    env.password = <mysql_password>
-    env.port = <mysql_port>
+    env.host <mysql_hostname>
+    env.username <mysql_username>
+    env.password <mysql_password>
+    env.port <mysql_port>
 
 If you omit environment variable for hostname ``127.0.0.1`` is used by default,
 if you omit environment variable for port ``3306`` is used by default.
