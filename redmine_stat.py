@@ -16,7 +16,7 @@ class RedmineBase(object):
     graph_args = "--base 1000 --lower-limit 0"
     graph_vlabel = "tickets"
 
-    def __init__(self, database, username, password, hostname, port=3306):
+    def __init__(self, database, username, password, hostname, port):
         self.db = MySQLdb.connect(host=hostname,
                                   user=username,
                                   passwd=password,
@@ -144,7 +144,7 @@ if __name__ == '__main__':
     username = os.environ.get("username")
     password = os.environ.get("password")
     database = os.environ.get("database")
-    port = os.environ.get("port", 3306)
+    port = int(os.environ.get("port")) if os.environ.get("port","").isdigit() else 3306
 
     if '_tracker' in sys.argv[0]:
         if '_open' in sys.argv[0]:
