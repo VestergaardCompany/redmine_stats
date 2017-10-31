@@ -14,7 +14,7 @@ class RedmineBase(object):
 
     graph_category = "redmine"
     graph_args = "--base 1000 --lower-limit 0"
-    graph_vlabel = "tickets"
+    graph_vlabel = "Tickets"
 
     def __init__(self, database, username, password, hostname, port=3306):
         self.db = MySQLdb.connect(host=hostname,
@@ -33,7 +33,7 @@ class RedmineBase(object):
 
 class TicketsByTracker(RedmineBase):
 
-    graph_title = "tickets by tracker"
+    graph_title = "Tickets by tracker"
 
     def _result(self, callback):
         self.cursor.execute("""\
@@ -66,7 +66,7 @@ class TicketsByTracker(RedmineBase):
 
 class OpenTicketsByTracker(TicketsByTracker):
 
-    graph_title = "open tickets by tracker"
+    graph_title = "Open tickets by tracker"
 
     def _result(self, callback):
         self.cursor.execute("""\
@@ -85,7 +85,7 @@ class OpenTicketsByTracker(TicketsByTracker):
 
 class TicketsByOwner(RedmineBase):
 
-    graph_title = "tickets by user"
+    graph_title = "Tickets by user"
 
     def _result(self, callback):
         self.cursor.execute("""\
@@ -121,7 +121,7 @@ class TicketsByOwner(RedmineBase):
 
 class OpenTicketByOwner(TicketsByOwner):
 
-    graph_title = "open tickets by user"
+    graph_title = "Open tickets by user"
 
     def _result(self, callback):
         self.cursor.execute("""\
